@@ -1,0 +1,27 @@
+{
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "off", // For demonstrative purposes
+    "no-unused-vars": "off", // At times we have unused variables across chapters/sections
+    "react-hooks/rules-of-hooks": "error", // Checks rules of React Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks Hooks effect dependencies
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
+}
