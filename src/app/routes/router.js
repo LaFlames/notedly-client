@@ -9,6 +9,7 @@ const AdminRoutes = () => {
         <Route index element={<Pages.Home />} />
         <Route path="mynotes" element={<Pages.MyNotes />} />
         <Route path="favorites" element={<Pages.Favorites />} />
+        <Route path="note/:id" element={<Pages.NotePage />} />
       </Route>
     </Routes>
   );
