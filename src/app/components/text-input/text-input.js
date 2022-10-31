@@ -9,6 +9,7 @@ const TextInput = ({
   onChange,
   hasLabel,
   labelText,
+  defaultValue,
 }) => {
   return (
     <div>
@@ -20,6 +21,7 @@ const TextInput = ({
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        defaultValue={defaultValue}
       />
     </div>
   );

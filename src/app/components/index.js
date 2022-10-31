@@ -5,3 +5,4 @@ export { default as Button } from './button';
 export { default as LinkButton } from './link-button';
 export { default as TextInput } from './text-input';
 export { default as LoginForm } from './login-form';
+export { default as NoteForm } from './note-form';

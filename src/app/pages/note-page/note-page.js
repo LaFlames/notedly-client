@@ -6,7 +6,7 @@ import * as C from '../../components';
 
 const NotePage = () => {
   const { id } = useParams();
-  const { data, loading, error } = useQuery(LD.noteQueries.GET_NOTE, {
+  const { data, loading, error } = useQuery(LD.GET_NOTE, {
     variables: { id },
   });
 

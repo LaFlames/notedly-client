@@ -35,7 +35,7 @@ const Note = ({ note }) => {
         </UserActions>
       </MetaData>
 
-      <ReactMarkdown source={note.content} />
+      <ReactMarkdown>{note.content}</ReactMarkdown>
     </StyledNote>
   );
 };

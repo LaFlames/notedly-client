@@ -4,9 +4,7 @@ import * as LD from './duck';
 import * as C from '../../components';
 
 const Home = () => {
-  const { data, loading, error, fetchMore } = useQuery(
-    LD.homeQueries.GET_NOTES
-  );
+  const { data, loading, error, fetchMore } = useQuery(LD.GET_NOTES);
 
   if (loading) return <div>Loading...</div>;
 
