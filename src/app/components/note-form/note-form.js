@@ -17,8 +17,6 @@ const TextArea = styled.textarea`
 const NoteForm = ({ content, onSubmit, isError, isLoading }) => {
   const [value, setValue] = useState({ content: content || '' });
 
-  console.log(value);
-
   const onChange = (event) => {
     setValue({
       ...value,

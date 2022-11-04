@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import * as LD from './duck';
+import * as API from '../../api';
 import * as C from '../../components';
 
 const Home = () => {
-  const { data, loading, error, fetchMore } = useQuery(LD.GET_NOTES);
+  const { data, loading, error, fetchMore } = useQuery(API.GET_NOTES);
 
   if (loading) return <div>Loading...</div>;
 

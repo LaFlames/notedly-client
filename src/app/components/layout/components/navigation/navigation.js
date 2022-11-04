@@ -51,9 +51,6 @@ const Navigation = () => {
           <NavLink to="/my-notes">My Notes</NavLink>
         </li>
         <li>
-          <NavLink to="/create">Create Note</NavLink>
-        </li>
-        <li>
           <NavLink to="/favorites">Favorites</NavLink>
         </li>
       </NavList>

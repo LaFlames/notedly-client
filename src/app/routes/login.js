@@ -5,7 +5,7 @@ import * as Pages from '../pages';
 const LoginRoutes = () => {
   return (
     <Routes>
-      <Route path="/sign-in" element={<Pages.SignIn />} />
+      <Route index path="/sign-in" element={<Pages.SignIn />} />
       <Route path="/sign-up" element={<Pages.SignUp />} />
       <Route path="*" element={<div>Error page</div>} />
     </Routes>

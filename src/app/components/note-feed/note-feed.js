@@ -10,7 +10,7 @@ const NoteWrapper = styled.div`
   border-bottom: 1px solid #f5f4f0;
 `;
 
-const NoteFeed = ({ notes }) => {
+const NoteFeed = ({ notes, linkToNote = 'note' }) => {
   return (
     <div>
       {notes.length &&
@@ -20,7 +20,7 @@ const NoteFeed = ({ notes }) => {
           return (
             <NoteWrapper key={id}>
               <Note note={rest} />
-              <NavLink to={`note/${id}`}>link</NavLink>
+              <NavLink to={`${linkToNote}/${id}`}>link</NavLink>
             </NoteWrapper>
           );
         })}

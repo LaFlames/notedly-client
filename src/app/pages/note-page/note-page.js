@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import * as LD from './duck';
+import * as API from '../../api';
 import * as C from '../../components';
 
 const NotePage = () => {
   const { id } = useParams();
-  const { data, loading, error } = useQuery(LD.GET_NOTE, {
+  const { data, loading, error } = useQuery(API.GET_NOTE, {
     variables: { id },
   });
 

@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useApolloClient } from '@apollo/client';
 import * as C from '../../components';
-import * as LD from './duck';
+import * as API from '../../api';
 import * as D from '../../duck';
 
 const SignUp = () => {
   const client = useApolloClient();
   const navigate = useNavigate();
 
-  const [signUp, { loading, error }] = useMutation(LD.SIGN_UP, {
+  const [signUp, { loading, error }] = useMutation(API.SIGN_UP, {
     onCompleted: ({ signUp }) => {
       localStorage.setItem('token', signUp);
       client.writeQuery({
