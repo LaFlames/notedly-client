@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../../assets/logo.svg';
 import styled from 'styled-components';
-import * as D from '../../../../duck';
+import * as API from '../../../../api';
 import LinkButton from '../../../link-button';
 import { useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ const UserState = styled.div`
 `;
 
 const Header = () => {
-  const { data, client } = useQuery(D.IS_LOGGED_IN);
+  const { data, client } = useQuery(API.IS_LOGGED_IN);
   const navigate = useNavigate();
 
   return (
@@ -42,7 +42,7 @@ const Header = () => {
               localStorage.removeItem('token');
               client.resetStore();
               client.writeQuery({
-                query: D.IS_LOGGED_IN,
+                query: API.IS_LOGGED_IN,
                 data: {
                   isLoggedIn: false,
                 },

@@ -14,16 +14,12 @@ const NoteFeed = ({ notes, linkToNote = 'note' }) => {
   return (
     <div>
       {notes.length &&
-        notes.map((note) => {
-          const { id, ...rest } = note;
-
-          return (
-            <NoteWrapper key={id}>
-              <Note note={rest} />
-              <NavLink to={`${linkToNote}/${id}`}>link</NavLink>
-            </NoteWrapper>
-          );
-        })}
+        notes.map((note) => (
+          <NoteWrapper key={note.id}>
+            <Note note={note} />
+            <NavLink to={`${linkToNote}/${note.id}`}>link</NavLink>
+          </NoteWrapper>
+        ))}
     </div>
   );
 };

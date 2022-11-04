@@ -1,5 +1,22 @@
 import { gql } from '@apollo/client';
 
+export const IS_LOGGED_IN = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+
+export const GET_ME = gql`
+  query me {
+    me {
+      id
+      favoriteNotes {
+        id
+      }
+    }
+  }
+`;
+
 export const GET_FAVORITES = gql`
   query me {
     me {

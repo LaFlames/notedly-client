@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { setContext } from 'apollo-link-context';
 import { createHttpLink } from '@apollo/client/link/http';
-import { IS_LOGGED_IN } from './auth-query';
+import * as API from '../api';
 
 const uri = 'http://localhost:4000/api';
 const httpLink = createHttpLink({ uri });
@@ -21,7 +21,7 @@ const data = {
 };
 
 cache.writeQuery({
-  query: IS_LOGGED_IN,
+  query: API.IS_LOGGED_IN,
   data,
 });
 
@@ -34,7 +34,7 @@ export const client = new ApolloClient({
 
 client.onResetStore(() =>
   cache.writeQuery({
-    query: IS_LOGGED_IN,
+    query: API.IS_LOGGED_IN,
     data,
   })
 );

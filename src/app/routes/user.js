@@ -8,6 +8,7 @@ const UserRoutes = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Pages.Home />} />
         <Route path="create" element={<Pages.CreateNote />} />
+        <Route path="edit/:id" element={<Pages.EditNote />} />
         <Route path="my-notes" element={<Pages.MyNotes />} />
         <Route path="favorites" element={<Pages.Favorites />} />
         <Route path="note/:id" element={<Pages.NotePage />} />

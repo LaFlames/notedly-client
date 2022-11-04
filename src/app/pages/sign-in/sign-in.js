@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation, useApolloClient } from '@apollo/client';
 import * as C from '../../components';
 import * as API from '../../api';
-import * as D from '../../duck';
 
 const SignIn = () => {
   const client = useApolloClient();
@@ -13,7 +12,7 @@ const SignIn = () => {
     onCompleted: ({ signIn }) => {
       localStorage.setItem('token', signIn);
       client.writeQuery({
-        query: D.IS_LOGGED_IN,
+        query: API.IS_LOGGED_IN,
         data: {
           isLoggedIn: true,
         },
