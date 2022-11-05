@@ -5,11 +5,7 @@ import LoginRoutes from './login';
 import * as API from '../api';
 
 const Router = () => {
-  const { data, refetch } = useQuery(API.IS_LOGGED_IN);
-
-  React.useEffect(() => {
-    refetch;
-  }, [data.isLoggedIn]);
+  const { data } = useQuery(API.IS_LOGGED_IN);
 
   return data.isLoggedIn ? <UserRoutes /> : <LoginRoutes />;
 };
