@@ -8,8 +8,8 @@ const CreateNote = () => {
   const navigate = useNavigate();
   const [addNote, { loading }] = useMutation(API.CREATE_NOTE, {
     refetchQueries: [{ query: API.GET_NOTES }, { query: API.GET_MY_NOTES }],
-    onCompleted: ({ addNote }) => {
-      navigate(`/note/${addNote.id}`);
+    onCompleted: () => {
+      navigate(`../my-notes`);
     },
   });
 

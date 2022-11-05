@@ -5,15 +5,17 @@ import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import * as API from '../../api';
+import * as LC from './components';
 
 const StyledNote = styled.article`
-  max-width: 800px;
+  max-width: 100%;
 `;
 
 const MetaData = styled.div`
   @media (min-width: 500px) {
     display: flex;
     align-items: top;
+    justify-content: space-between;
   }
 `;
 
@@ -22,7 +24,9 @@ const MetaInfo = styled.div`
 `;
 
 const UserActions = styled.div`
-  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 `;
 
 const Note = ({ note }) => {
@@ -39,22 +43,40 @@ const Note = ({ note }) => {
         <MetaInfo>
           <em>by</em> {note.author.username} <br />
           {dayjs(note.createdAt).format('DD/MM/YYYY')}
+          <ReactMarkdown>{note.content}</ReactMarkdown>
         </MetaInfo>
+
         {data.isLoggedIn && userData.me.id === note.author.id ? (
           <UserActions>
-            <NavLink to={`/edit/${note.id}`}>Edit</NavLink>
             <div>
-              <em>Favorites:</em> {note.favoriteCount}
+              <NavLink
+                style={{
+                  marginRight: '10px',
+                  textDecoration: 'none',
+                  color: '#8c6223',
+                }}
+                to={`/edit/${note.id}`}
+              >
+                Edit
+              </NavLink>
+              <LC.Delete id={note.id} />
             </div>
+            <LC.MakeFavorite
+              me={userData.me}
+              id={note.id}
+              favoriteCount={note.favoriteCount}
+            />
           </UserActions>
         ) : (
           <UserActions>
-            <em>Favorites:</em> {note.favoriteCount}
+            <LC.MakeFavorite
+              me={userData.me}
+              id={note.id}
+              favoriteCount={note.favoriteCount}
+            />
           </UserActions>
         )}
       </MetaData>
-
-      <ReactMarkdown>{note.content}</ReactMarkdown>
     </StyledNote>
   );
 };

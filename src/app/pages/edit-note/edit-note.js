@@ -42,8 +42,6 @@ const EditNote = () => {
       onSubmit={editNote}
       isLoading={loading}
       content={data.note.content}
-      isEdit
-      id={id}
     />
   );
 };

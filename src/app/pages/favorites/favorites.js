@@ -10,10 +10,10 @@ const Favorites = () => {
 
   if (error) return <div>Error!</div>;
 
-  if (data.me.notes.length !== 0) {
-    return <C.NoteFeed notes={data.me.favorites} />;
+  if (data.me.favoriteNotes.length !== 0) {
+    return <C.NoteFeed notes={data.me.favoriteNotes} linkToNote="../note" />;
   } else {
-    return <p>No favorites yet</p>;
+    return <div>No favorites yet</div>;
   }
 };
 

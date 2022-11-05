@@ -14,7 +14,7 @@ const TextArea = styled.textarea`
   padding: 10px 10px;
 `;
 
-const NoteForm = ({ content, onSubmit, isError, isLoading, isEdit, id }) => {
+const NoteForm = ({ content, onSubmit, isError, isLoading }) => {
   const [value, setValue] = useState({ content: content || '' });
 
   const onChange = (event) => {

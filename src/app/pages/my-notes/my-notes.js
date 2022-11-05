@@ -12,25 +12,25 @@ const MyNotes = () => {
 
   if (error) return <div>Error!</div>;
 
-  if (data.me.notes.length !== 0) {
-    return (
-      <div>
-        <C.Button
-          style={{ fontSize: '15px' }}
-          onClick={() => {
-            navigate('../create');
-          }}
-        >
-          Create Note
-        </C.Button>
+  return (
+    <>
+      <C.Button
+        style={{ fontSize: '15px' }}
+        onClick={() => {
+          navigate('../create');
+        }}
+      >
+        Create Note
+      </C.Button>
+      {data.me.notes.length !== 0 ? (
         <div style={{ marginTop: 30 }}>
           <C.NoteFeed notes={data.me.notes} linkToNote="../note" />
         </div>
-      </div>
-    );
-  } else {
-    return <p>No notes yet</p>;
-  }
+      ) : (
+        <div style={{ marginTop: 10 }}>No notes yet</div>
+      )}
+    </>
+  );
 };
 
 export default MyNotes;

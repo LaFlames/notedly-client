@@ -10,6 +10,7 @@ export const GET_ME = gql`
   query me {
     me {
       id
+      username
       favoriteNotes {
         id
       }
@@ -22,7 +23,7 @@ export const GET_FAVORITES = gql`
     me {
       id
       username
-      favorites {
+      favoriteNotes {
         id
         createdAt
         content

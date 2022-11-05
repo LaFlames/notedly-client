@@ -24,6 +24,24 @@ export const EDIT_NOTE = gql`
   }
 `;
 
+export const DELETE_NOTE = gql`
+  mutation deleteNote($id: ID!) {
+    deleteNote(id: $id)
+  }
+`;
+
+export const TOGGLE_FAVORITE = gql`
+  mutation toggleFavorite($id: ID!) {
+    toggleFavorite(id: $id) {
+      favoriteCount
+      favoritedBy {
+        id
+        username
+      }
+    }
+  }
+`;
+
 export const SIGN_IN = gql`
   mutation signIn($email: String, $password: String!) {
     signIn(email: $email, password: $password)

@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { useQuery } from '@apollo/client';
+import * as API from '../../../../api';
 
 const Nav = styled.nav`
   padding: 1em;
@@ -22,6 +24,7 @@ const NavList = styled.ul`
   padding: 0;
   list-style: none;
   line-height: 2;
+  margin-top: 20px;
 
   a {
     text-decoration: none;
@@ -41,8 +44,13 @@ const NavList = styled.ul`
 `;
 
 const Navigation = () => {
+  const { data } = useQuery(API.GET_ME);
+
   return (
     <Nav>
+      <div style={{ fontSize: '20px', fontStyle: 'italic' }}>
+        Hello, {data?.me?.username}!
+      </div>
       <NavList>
         <li>
           <NavLink to="/">Home</NavLink>
