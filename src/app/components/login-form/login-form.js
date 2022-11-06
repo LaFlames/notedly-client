@@ -74,7 +74,6 @@ const LoginForm = ({ formType, onSubmit, isError, isLoading }) => {
           onChange={onChange}
           hasLabel
           labelText="Email:"
-          defaultValue={formType === 'signin' ? values.email : ''}
         />
         <TextInput
           required
@@ -83,7 +82,6 @@ const LoginForm = ({ formType, onSubmit, isError, isLoading }) => {
           onChange={onChange}
           hasLabel
           labelText="Password:"
-          defaultValue={formType === 'signin' ? values.password : ''}
         />
         <div
           style={{

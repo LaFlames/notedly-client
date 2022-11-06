@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const NoteWrapper = styled.div`
-  max-width: 90%;
   margin-bottom: 2em;
   padding-bottom: 2em;
   border-bottom: 1px solid #f5f4f0;
