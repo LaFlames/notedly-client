@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 import * as API from '../../../../api';
@@ -44,6 +44,12 @@ const NavList = styled.ul`
 `;
 
 const Navigation = () => {
+  const { pathname } = useLocation();
+  const paths = [
+    { title: 'Home', to: '/' },
+    { title: 'My Notes', to: '/my-notes' },
+    { title: 'Favorites', to: '/favorites' },
+  ];
   const { data } = useQuery(API.GET_ME);
 
   return (
@@ -52,15 +58,20 @@ const Navigation = () => {
         Hello, {data?.me?.username}!
       </div>
       <NavList>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/my-notes">My Notes</NavLink>
-        </li>
-        <li>
-          <NavLink to="/favorites">Favorites</NavLink>
-        </li>
+        {paths.map((path) => {
+          const isActiveLink = pathname === path.to;
+
+          return (
+            <li key={path.to}>
+              <NavLink
+                to={path.to}
+                style={{ color: isActiveLink && '#0077cc' }}
+              >
+                {path.title}
+              </NavLink>
+            </li>
+          );
+        })}
       </NavList>
     </Nav>
   );

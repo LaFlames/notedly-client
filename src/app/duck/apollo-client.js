@@ -3,7 +3,7 @@ import { setContext } from 'apollo-link-context';
 import { createHttpLink } from '@apollo/client/link/http';
 import * as API from '../api';
 
-const uri = 'http://localhost:4000/api';
+const uri = 'https://notesick.herokuapp.com/api';
 const httpLink = createHttpLink({ uri });
 const cache = new InMemoryCache();
 
