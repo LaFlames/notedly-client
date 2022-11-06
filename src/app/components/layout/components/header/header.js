@@ -47,7 +47,7 @@ const Header = () => {
                   isLoggedIn: false,
                 },
               });
-              navigate('/sign-in');
+              navigate('/');
             }}
           >
             Log Out
